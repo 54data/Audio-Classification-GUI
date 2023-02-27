@@ -6,7 +6,7 @@
 
 ## 2. GUI
 **2-1) GUI 구현 목표**  
-- 그래프를 통한 시각화 : 진폭 plot / specgram / MFCC  
+- 그래프를 통한 시각화 : Waveform plot / specgram / MFCC  
 - Upload, Play, Pause, Stop, Save Graph 구현  
 - 모델 예측 결과를 % 비율로 표시  
 
