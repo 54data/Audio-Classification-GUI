@@ -140,7 +140,7 @@ class main_interface:
     
     # 샘플 파일을 집어넣으면 음성의 특징을 추출하는 함수(불러온 모델에 넣어 예측할 수 있도록 변형)
     def extract_features(self):
-        self.sample, self.sr = librosa.load(self.file_path) # 불러온 오디오 파일의 진폭을 담기
+        self.sample, self.sr = librosa.load(self.file_path)
         extracted_features = np.empty((0, 61, ))            # 61개의 값을 받을 비어있는 리스트 생성
         zero_cross_feat = librosa.feature.zero_crossing_rate(self.sample).mean()     
         self.mfccs = librosa.feature.mfcc(y=self.sample, sr=self.sr, n_mfcc=60) 
@@ -169,9 +169,9 @@ class main_interface:
     
     # 그래프 그리기
     def set_plot(self):
-        # 진폭 plot 그리기
+        # waveform plot 그리기
         time = np.linspace(0, len(self.sample)/self.sr, len(self.sample)) # x축 범위 지정
-        self.a1.plot(time, self.sample)                    # 불러온 파일의 진폭을 그래프로 표현
+        self.a1.plot(time, self.sample)                    
         self.split_index = self.file_path.rfind('/') + 1   # 그래프 제목에 파일명을 넣기 위함
         self.a1.set_title('\''+ self.file_path[self.split_index:] + '\' Audio Graph') # 그래프 제목
         self.a1.set_xlabel("Time [s]")
